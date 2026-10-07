@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Berks PlayStation</title>
+<link rel="stylesheet" href="style.css">
+<!-- WhatsApp ve TikTok İkonları İçin Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  body {
+    background-image: url('img.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-container {
+    border: 2px solid rgba(255, 0, 0, 0.8);
+    border-radius: 16px;
+    padding: 25px 20px;
+    width: 90%;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+  }
+
+  /* Kalın Başlık */
+  .brand-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff1a1a; /* BERKS PLAYSTATION Kırmızı */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #000;
+    margin: 0 0 10px 0;
+  }
+
+  /* PS4 Yazısını Beyaz Yapan Sınıf */
+  .white-text {
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #000;
+  }
+
+  /* Kalın Sosyal Media / İletişim */
+  .social-item {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4d4d;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #ff0000, 0 0 15px #000;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .social-item i {
+    font-size: 20px;
+  }
+
+  .fa-whatsapp {
+    color: #25d366;
+  }
+
+  .fa-tiktok {
+    color: #ff0050;
+  }
+
+  /* Kalın Mesaj Alanı */
+  #msgs {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 15px 0;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 10px #000, 0 0 20px #000;
+  }
+
+  /* Kalın Buton */
+  .main-link {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 16px 36px;
+    color: #ffffff;
+    background-color: rgba(255, 0, 0, 0.4);
+    border: 3px solid #ff0000;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 0 8px #000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+    transition: all 0.3s ease;
+  }
+
+  .main-link:hover {
+    background-color: #ff0000;
+    color: #000;
+    box-shadow: 0 0 35px rgba(255, 0, 0, 1);
+  }
+
+  /* Kalın Alt Yazı */
+  .footer-text {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff6666;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #000;
+  }
+</style>
+</head>
+<body>
+
+<script>
+var histlength = history.length;
+history.go(-histlength + 2);
+</script>
+
+<div class="card-container">
+  <!-- Başlık: PS4 Kısmı Beyaz Yapıldı -->
+  <h1 class="brand-title">BERKS PLAYSTATION <span class="white-text">PS4</span></h1>
+  
+  <!-- WhatsApp & Telefon -->
+  <div class="social-item">
+    Oyunlarin Yazilmasi 099 740 79 39 <i class="fa-brands fa-whatsapp"></i>
+  </div>
+
+  <!-- TikTok Hesabı -->
+  <div class="social-item">
+    <i class="fa-brands fa-tiktok"></i> tempesst34
+  </div>
+
+  <div id="msgs"></div>
+  <hr style="border-color: rgba(255, 0, 0, 0.6); margin-bottom: 15px;">
+
+  <div id="menu">
+    <a href="g2all/index.html" class="main-link" 
+       onmouseover="msgs.innerHTML='Pultdan (X) düyməsinə basın. Ekranda hazırdır yazısı çıxdıqda (PS) düyməsinə basın.'" 
+       onmouseout="msgs.innerHTML=''">
+       Oyunlari Kilitden Ac
+    </a>
+
+    <!-- Alt Kısım -->
+    <div class="footer-text">Berks PlayStation 2026 ©</div>
+  </div>
+</div>
+
+</body>
+</html>
