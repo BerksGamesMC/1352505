@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" manifest="cache.manifest">
 <head>
 <meta charset="UTF-8">
 <title>Berks PlayStation</title>
@@ -45,7 +45,7 @@
   .brand-title {
     font-size: 32px;
     font-weight: bold;
-    color: #ff1a1a; /* BERKS PLAYSTATION Kırmızı */
+    color: #ff1a1a;
     text-transform: uppercase;
     letter-spacing: 2px;
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #000;
@@ -86,7 +86,7 @@
 
   /* Kalın Mesaj Alanı */
   #msgs {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     color: #ffffff;
     margin: 15px 0;
@@ -97,16 +97,26 @@
     text-shadow: 0 0 10px #000, 0 0 20px #000;
   }
 
-  /* Kalın Buton */
+  /* Düymələrin Qutusu */
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  /* Kalın Butonlar */
   .main-link {
-    display: inline-block;
-    margin: 10px 0;
-    padding: 16px 36px;
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 20px;
     color: #ffffff;
     background-color: rgba(255, 0, 0, 0.4);
     border: 3px solid #ff0000;
     border-radius: 10px;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     text-decoration: none;
     text-shadow: 0 0 8px #000;
@@ -134,12 +144,29 @@
 <body>
 
 <script>
+// Tarixçəni təmizləyib oflayn keş sistemi üçün hazırlamaq
 var histlength = history.length;
 history.go(-histlength + 2);
+
+// Oflayn Keş Yükləmə Funksiyaları
+function DLProgress(e){
+  Percent = (Math.round(e.loaded / e.total * 100));
+  document.getElementById("msgs").innerHTML = "Oflayn Keş Yüklənir: " + Percent + "%";
+}
+
+function DisplayCacheProgress(){
+  document.getElementById("msgs").innerHTML = "Keş Uğurla Yükləndi ✔ (Oflayn İşləyir)";
+}
+
+if (window.applicationCache) {
+  window.applicationCache.addEventListener("progress", DLProgress, false);
+  window.applicationCache.oncached = function(e){ DisplayCacheProgress(); };
+  window.applicationCache.onupdateready = function(e){ DisplayCacheProgress(); };
+}
 </script>
 
 <div class="card-container">
-  <!-- Başlık: PS4 Kısmı Beyaz Yapıldı -->
+  <!-- Başlıq -->
   <h1 class="brand-title">BERKS PLAYSTATION <span class="white-text">PS4</span></h1>
   
   <!-- WhatsApp & Telefon -->
@@ -152,15 +179,32 @@ history.go(-histlength + 2);
     <i class="fa-brands fa-tiktok"></i> tempesst34
   </div>
 
-  <div id="msgs"></div>
+  <div id="msgs">Zəhmət olmasa versiyanızı seçin</div>
   <hr style="border-color: rgba(255, 0, 0, 0.6); margin-bottom: 15px;">
 
   <div id="menu">
-    <a href="g2all/index.html" class="main-link" 
-       onmouseover="msgs.innerHTML='Pultdan (X) düyməsinə basın. Ekranda hazırdır yazısı çıxdıqda (PS) düyməsinə basın.'" 
-       onmouseout="msgs.innerHTML=''">
-       Oyunlari Kilitden Ac
-    </a>
+    <div class="button-group">
+      <!-- 6.72 Düyməsi -->
+      <a href="672goldhen/index.html" class="main-link" 
+         onmouseover="msgs.innerHTML='6.72 Versiya üçün GoldHEN Aktivləşdir'" 
+         onmouseout="msgs.innerHTML='Zəhmət olmasa versiyanızı seçin'">
+         6.72 GoldHEN
+      </a>
+
+      <!-- 9.00 Düyməsi -->
+      <a href="900goldhen/index.html" class="main-link" 
+         onmouseover="msgs.innerHTML='9.00 Versiya üçün GoldHEN Aktivləşdir'" 
+         onmouseout="msgs.innerHTML='Zəhmət olmasa versiyanızı seçin'">
+         9.00 GoldHEN
+      </a>
+
+      <!-- 13.02 - 13.52 Düyməsi -->
+      <a href="g2all/index.html" class="main-link" 
+         onmouseover="msgs.innerHTML='13.02 - 13.52 Versiya üçün Oyunları Kiliddən Aç'" 
+         onmouseout="msgs.innerHTML='Zəhmət olmasa versiyanızı seçin'">
+         13.02 - 13.52
+      </a>
+    </div>
 
     <!-- Alt Kısım -->
     <div class="footer-text">Berks PlayStation 2026 ©</div>
